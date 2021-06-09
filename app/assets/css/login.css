@@ -1,0 +1,84 @@
+@font-face {
+   font-family: Gordita;
+   src: url(../fonts/gordita.woff);
+}
+
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+} 
+
+*{
+    font-family: Gordita, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #31343B;
+}
+
+body{
+    margin: 0px;
+    background-color: #557CF2;
+}
+
+#all{
+    width: 100%;
+    max-height: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#title-area{
+    width: 100%;
+    font-weight: bold;
+}
+
+#boxLogin{
+    width: 750px;
+    background-color: #F7FAFF;
+    border-radius: 10px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 40px 80px 40px;
+}
+
+#inputs-login{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title-area{
+    padding: 0px 0px 40px;
+}
+
+.form-group{
+    width: 70%;
+    margin: 15px 0px;
+}
+
+.inputs{
+    width: 100%;
+    padding: 10px 0px 10px 5px;
+    border-radius: 10px;
+    border: none;
+    border: #31343B 2px solid;
+}
+
+/* .inputs::out */
+
+.label-input{
+    outline: none;
+    font-weight: bold;
+    color: #31343B;
+}
+
+#button-form{
+    width: 70%;
+}
+
+#button-form button{
+    width: 100% !important;
+    padding: 10px 0px 10px 5px;
+}
