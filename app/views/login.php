@@ -10,6 +10,7 @@
     <script src="<?= $_ENV['BASE_URL'] . 'app/assets/libraries/bootstrap.js' ?> "></script>
     <script src="<?= $_ENV['BASE_URL'] . 'app/assets/libraries/jquery.js' ?> "></script>
     <script src="<?= $_ENV['BASE_URL'] . 'app/assets/js/' . $js?> "></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div id="all">
@@ -31,8 +32,16 @@
                 </div>
 
                 <div id="button-form">
-                    <button class="btn btn-success">Entrar</button>
-                    <a href="<?=$git_login?>"><button class='mt-4 btn btn-danger' onclick="loginGithub()">Entrar com github</button></a>
+                    <button id="button-submit" class="btn btn-success">Entrar</button>
+
+                    <hr data-content="OU" class="hr-text">
+
+                    <a href="<?=$git_login?>" id="button-login-github-a">
+                        <div id="button-login-github">
+                            <div id="button-login-github-icon"><i id="icon-btn-github" class="fab fa-github"></i></div>
+                            <div id="button-login-github-text">Login with GitHub</div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

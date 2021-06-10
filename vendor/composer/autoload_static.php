@@ -24,6 +24,16 @@ class ComposerStaticInit063c5879daa0b7f3eedc36218079ec06
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'R' => 
+        array (
+            'Requests' => 
+            array (
+                0 => __DIR__ . '/..' . '/rmccue/requests/library',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -33,6 +43,7 @@ class ComposerStaticInit063c5879daa0b7f3eedc36218079ec06
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit063c5879daa0b7f3eedc36218079ec06::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit063c5879daa0b7f3eedc36218079ec06::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit063c5879daa0b7f3eedc36218079ec06::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit063c5879daa0b7f3eedc36218079ec06::$classMap;
 
         }, null, ClassLoader::class);

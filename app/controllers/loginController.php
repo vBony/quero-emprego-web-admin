@@ -10,6 +10,8 @@ class loginController extends controllerHelper{
             'client_id' => "0aa7c2975ae29003952e",
             'redirect_uri' => $_ENV['BASE_URL'] . 'thirdparty/github/',
         ));
+
+        $data['git_login'] = "https://github.com/login/oauth/authorize?$params";
         
 
         $this->loadView('login', $data);

@@ -79,7 +79,53 @@ class thirdpartyController extends controllerHelper{
     }
 
     public function github(){
-        echo 'code: ' . $_GET['code'];
+        // echo 'code: ' . $_GET['code'];
+
+        $urlRequest = "https://github.com/login/oauth/access_token";
+        $headers = array('Accept' => 'application/json');
+        
+        $code = $_GET['code'];
+        $options = array(
+            'client_id' => '0aa7c2975ae29003952e',
+            'client_secret' => '3a1fba2f84bd9220628b64b42e08d6d6035885cd',
+            'redirect_uri' => $_ENV['BASE_URL'] . 'thirdparty/github/',
+            'code' => $code,
+        );
+
+
+        $request = Requests::post($urlRequest, $headers, $options);
+        $result = json_decode($request->body);
+
+        if(!empty($result)){
+            if(isset($result->access_token)){
+                $accessToken = $result->access_token;
+
+                $_SESSION['token-git'] = $accessToken; 
+                $urlRequest = "https://api.github.com/user";
+                
+                $headers = array(
+                    'Accept' => 'application/json',
+                    'Authorization' => "token $accessToken"
+                );
+                $options = array();
+                $requestDados = Requests::get($urlRequest, $headers, $options);
+
+                echo "dados: <br>";
+                echo "<pre>";
+                    print_r(json_decode($requestDados->body));
+                echo "<pre>";
+                echo "<br>";
+            }
+
+        }
+
+    }
+
+    public function gitcallback(){
+        echo "dados: <br>";
+        print_r($_GET);
+        echo "<br>";
+        print_r($_POST);
     }
 }
 

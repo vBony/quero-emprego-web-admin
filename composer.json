@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-        "symfony/dotenv": "^5.3"
+        "symfony/dotenv": "^5.3",
+        "rmccue/requests": "^1.8"
     }
 }

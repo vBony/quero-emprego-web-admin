@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '527cc5aa343f8d0cae8422de3dbfa05be5885f0e',
+    'reference' => 'bf05ccc9d5abf490c3489686f5631c2eb1e03959',
     'name' => 'conta/quero-emprego-web',
   ),
   'versions' => 
@@ -18,7 +18,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => '527cc5aa343f8d0cae8422de3dbfa05be5885f0e',
+      'reference' => 'bf05ccc9d5abf490c3489686f5631c2eb1e03959',
+    ),
+    'rmccue/requests' => 
+    array (
+      'pretty_version' => 'v1.8.1',
+      'version' => '1.8.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '82e6936366eac3af4d836c18b9d8c31028fe4cd5',
     ),
     'symfony/deprecation-contracts' => 
     array (

@@ -82,3 +82,63 @@ body{
     width: 100% !important;
     padding: 10px 0px 10px 5px;
 }
+
+#button-login-github-a{
+    text-decoration: none;
+}
+
+#button-submit{
+    margin-bottom: 15px;
+}
+
+#button-login-github-a:visited{
+    color: white;
+}
+
+#button-login-github{
+    background-color: #333333;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: .25rem;
+}
+
+#icon-btn-github, #button-login-github-text{
+    color: white;
+}
+
+#icon-btn-github{
+    font-size: 28px;
+}
+
+#button-login-github-text{
+    margin-left: 10px;
+}
+
+#button-login-github-icon{
+    margin: 0px 10px;
+}
+
+.hr-text {
+    position: relative;
+    border: none;
+    height: 1px;
+    background: #999;
+}
+
+.hr-text::before {
+    content: attr(data-content);
+    display: inline-block;
+    background: #fff;
+    font-weight: bold;
+    font-size: rem;
+    color: rgb(124, 124, 124);
+    border-radius: 30rem;
+    padding: 0.2rem 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
