@@ -1,14 +1,9 @@
+$('body').ready(function(){
+    $('#button-login-github-a').on('click', function(){
+        $('#loading-bg').fadeIn('fast');
 
-function loginGithub(){
-    let base_url = $('#base_url').val()
-    
-    $.ajax({
-        url: base_url + 'thirdparty/github/',
-        method: 'POST',
-        dataType: 'json',
-        success: function(json){
-            alert(json)
-        }
-
+        $("body").load(function(){
+            $('#loading-bg').fadeOut('fast');
+        });
     })
-}
+})

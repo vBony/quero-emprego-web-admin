@@ -1,131 +1,107 @@
 <?php
 class thirdpartyController extends controllerHelper{
-    public function facebook(){
-        require $_SERVER['DOCUMENT_ROOT'].'/souenfermagem/app/assets/libraries/Facebook/autoload.php';
-        $DBuser = new User();
-
-        $fb = new Facebook\Facebook([
-            'app_id' => '1338180326572722',
-            'app_secret' => 'e8d644fb5ee41e92198aeeba124d6535',
-            'default_graph_version' => 'v3.2',
-        ]);
-
-        $redirect = $_ENV['BASE_URL'].'thirdparty/facebook';
-
-        $helper = $fb->getRedirectLoginHelper();
-
-        try {
-
-            $accessToken = $helper->getAccessToken();
-        
-        
-        } catch(Facebook\Exceptions\FacebookResponseException $e) {
-        
-            echo 'Graph returned an error: ' . $e->getMessage();
-            exit;
-        
-        } catch(Facebook\Exceptions\FacebookSDKException $e) {
-        
-            echo 'Facebook SDK returned an error: ' . $e->getMessage();
-            exit;
-        
-        }
-
-        if(! isset($accessToken)){
-            $permissions = ['email'];
-            $loginUrl = $helper->getLoginUrl($redirect, $permissions);
-
-            header('Location: '.$loginUrl);
-        }else{
-            $fb->setDefaultAccessToken($accessToken);
-            $responseUser = $fb->get('/me?fields=email,name,picture,id,link', $accessToken);
-            $responseImage = $fb->get('/me/picture?redirect=false&width=250&height=250', $accessToken);
-        
-            //Dados do usuario pelo FB
-            $FBuser = $responseUser->getGraphUser();
-        
-            //Foto de perfil
-            $FBuserImage = $responseImage->getGraphUser();
-        }
-
-        $FBid = $FBuser->getId();
-        $FBemail = $FBuser['email'];
-        $FBname = $FBuser['name'];
-
-        if($DBuser->facebookVerifier($FBid, $FBemail) != false){
-            $userData = $DBuser->facebookVerifier($FBid, $FBemail);
-
-            //Verifica se é o primeiro acesso do usuário, se caso for, ir para pagina para continuar o cadastro
-            if($userData['first_access'] == 1){
-                $_SESSION['ID_user'] = $userData['id'];
-                header('Location:'.$_ENV['BASE_URL'].'user/first_access');
-            }else{
-                header('Location: '.$_ENV['BASE_URL']);
-            }
-
-        }else{
-           $DBuser->facebookRegister($FBid, $FBemail, $FBname);
-           header('Location:'.$_ENV['BASE_URL'].'user/first_access');
-        }
-
-        // //Listagem de dados
-        // echo "<strong>Access Token:  </strong>".$accessToken.'<br>';
-        // echo 'ID: '.$FBuser->getId().'<br>';
-        // echo '<strong>Nome:</strong> '.$FBuser['name']."<br>";
-        // echo '<strong>Email: </strong>'.$FBuser['email']."<br>";
-        // echo '<strong>Foto de perfil: '.'<br>';
-        // echo '<img src="'.$FBuserImage['url'].'"/><br><br>';
-        // echo $_GET['code'];
-    }
+    private $accessToken;
 
     public function github(){
-        // echo 'code: ' . $_GET['code'];
 
-        $urlRequest = "https://github.com/login/oauth/access_token";
+        /**
+         * Verificando se o usuário aceitou o login com o github
+         */
+        if(isset($_GET['code']) || !empty($_GET['code'])){
+            $code = $_GET['code'];
+        }else{
+            header("Location: " . $_ENV['BASE_URL'] . 'login');
+        }
+
+        /**
+         * Definindo configurações para a requisição
+         */
+        $url = "https://github.com/login/oauth/access_token";
         $headers = array('Accept' => 'application/json');
-        
-        $code = $_GET['code'];
         $options = array(
-            'client_id' => '0aa7c2975ae29003952e',
-            'client_secret' => '3a1fba2f84bd9220628b64b42e08d6d6035885cd',
+            'client_id' => $_ENV['GITHUB_CLIENT_ID'],
+            'client_secret' => $_ENV['GITHUB_CLIENT_SECRET'],
             'redirect_uri' => $_ENV['BASE_URL'] . 'thirdparty/github/',
             'code' => $code,
         );
 
 
-        $request = Requests::post($urlRequest, $headers, $options);
-        $result = json_decode($request->body);
+        $request = Requests::post($url, $headers, $options);
+        $response = json_decode($request->body);
 
-        if(!empty($result)){
-            if(isset($result->access_token)){
-                $accessToken = $result->access_token;
+        if(!empty($response) && isset($response->access_token)){
+            $this->accessToken = $response->access_token;
+            $user_data = $this->getUserDataGit($this->accessToken);
+            
+            if($this->validarUsuario($user_data)){
+                $UserAdmin = new UserAdmin();
+                $user_db = $UserAdmin->verify_user_git($user_data['id_git']);   //Verificando se o usuário existe no banco de dados
 
-                $_SESSION['token-git'] = $accessToken; 
-                $urlRequest = "https://api.github.com/user";
-                
-                $headers = array(
-                    'Accept' => 'application/json',
-                    'Authorization' => "token $accessToken"
-                );
-                $options = array();
-                $requestDados = Requests::get($urlRequest, $headers, $options);
+                if($user_db != null){
+                    if($user_db['status'] != 0){    //Usuário existe porém foi banido
+                        header("Location: " . $_ENV['BASE_URL'] . 'error/nao-membro');
+                    }
+                }else{  //Salvando no banco
+                    $UserAdmin = new UserAdmin();
+                    $UserAdmin->insert($user_data);
 
-                echo "dados: <br>";
-                echo "<pre>";
-                    print_r(json_decode($requestDados->body));
-                echo "<pre>";
-                echo "<br>";
+                    echo 'usuario inserido';
+                }
+            }else{
+                header("Location: " . $_ENV['BASE_URL'] . 'error/nao-membro');
             }
-
         }
 
     }
 
-    public function gitcallback(){
-        echo "dados: <br>";
-        print_r($_GET);
-        echo "<br>";
-        print_r($_POST);
+    /**
+     * Requisição para pegar os dados do usuário:
+     * @var string login
+     * @var int id
+     * @var string foto
+     * @var string name
+     * @var string html_url
+     * @var string login
+     */
+    private function getUserDataGit($access_token){
+        $url = "https://api.github.com/user";
+
+        $headers = array(
+            'Accept' => 'application/json',
+            'Authorization' => "token $access_token"
+        );
+
+        $response = Requests::get($url, $headers, array());
+        $response = json_decode($response->body);
+
+        $user_data['id_git'] = $response->id ?: null;
+        $user_data['login_git'] = $response->login ?: null;
+        $user_data['url_avatar_web'] = $response->avatar_url ?: null;
+        $user_data['url'] = $response->html_url ?: null;
+        $user_data['email_git'] = $response->email ?: null;
+        $user_data['nome'] = $response->name ?: null;
+        return $user_data;
+    }
+
+    
+    /**
+     * Verifica se o usuário está como colaborador no repositório do projeto
+     */
+    public function validarUsuario($user_data){
+        $header = array(
+            'Accept' => 'application/vnd.github.inertia-previewjson',
+        );
+
+        $members = Requests::get('https://api.github.com/repos/vBony/quero-emprego-web-admin/contributors', $header, array());
+        $members = json_decode($members->body);
+
+        foreach($members as $member){ 
+            if($user_data['id_git'] == $member->id){    
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 

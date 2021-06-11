@@ -13,7 +13,7 @@ if($_ENV['ENVIROMENT'] == 'development'){
 
 global $db;
 try{
-    // $db = new PDO("mysql:dbname=".$config['dbname'].";host=".$config['host'], $config['dbuser'], $config['dbpass']);
+    $db = new PDO("mysql:dbname=".$_ENV['DB_NAME'].";host=".$_ENV['HOST'], $_ENV['DB_USER'], $_ENV['DB_PASS']);
 }catch(PDOException $e){
     echo "Error: ".$e->getMessage();
     exit;

@@ -7,7 +7,7 @@ class loginController extends controllerHelper{
         $data['js'] = 'login.js';
 
         $params = http_build_query(array(
-            'client_id' => "0aa7c2975ae29003952e",
+            'client_id' => $_ENV['GITHUB_CLIENT_ID'],
             'redirect_uri' => $_ENV['BASE_URL'] . 'thirdparty/github/',
         ));
 

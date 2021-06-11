@@ -14,34 +14,52 @@
 </head>
 <body>
     <div id="all">
-        <div id="boxLogin">
-            <div id="title-area">
-                <h1 class="text-center">Quero Emprego</h1>
-                <H4 class="text-danger text-center">Área do administrador</H4>
+        <div id="loading-bg" style="display:none">
+
+            <div id="loading-inv">
+                <div id="spinner-loading">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
+                <div id="loading-text">
+                    Carregando
+                </div>
             </div>
 
-            <div id="inputs-login">
-                <div class="form-group">
-                    <div class="label-input">Email</div>
-                    <input type="email" required class="inputs">
+        </div>
+        <div id="boxLogin">
+            <!-- para a box de login sobrepor -->
+            <div id="inputs-box">
+                <div id="title-area">
+                    <h1 class="text-center">Quero Emprego</h1>
+                    <H4 class="text-danger text-center">Área do administrador</H4>
                 </div>
 
-                <div class="form-group">
-                    <div class="label-input">Senha</div>
-                    <input type="password" class="inputs">
-                </div>
+                <div id="inputs-login">
+                    <div class="form-group">
+                        <div class="label-input">Email</div>
+                        <input type="email" required class="inputs">
+                    </div>
 
-                <div id="button-form">
-                    <button id="button-submit" class="btn btn-success">Entrar</button>
+                    <div class="form-group">
+                        <div class="label-input">Senha</div>
+                        <input type="password" class="inputs">
+                    </div>
 
-                    <hr data-content="OU" class="hr-text">
+                    <div id="button-form">
+                        <button id="button-submit" class="btn btn-success">Entrar</button>
 
-                    <a href="<?=$git_login?>" id="button-login-github-a">
-                        <div id="button-login-github">
-                            <div id="button-login-github-icon"><i id="icon-btn-github" class="fab fa-github"></i></div>
-                            <div id="button-login-github-text">Login with GitHub</div>
-                        </div>
-                    </a>
+                        <hr data-content="OU" class="hr-text">
+
+                        <a href="<?=$git_login?>" id="button-login-github-a">
+                            <div id="button-login-github">
+                                <div id="button-login-github-icon"><i id="icon-btn-github" class="fab fa-github"></i></div>
+                                <div id="button-login-github-text">Login with GitHub</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

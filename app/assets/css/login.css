@@ -39,7 +39,13 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: 0.2s;
+}
+
+#inputs-box{
     padding: 40px 40px 80px 40px;
+    background-color: white;
+    transition: 0.2s;
 }
 
 #inputs-login{
@@ -85,6 +91,7 @@ body{
 
 #button-login-github-a{
     text-decoration: none;
+    
 }
 
 #button-submit{
@@ -141,4 +148,24 @@ body{
     transform: translate(-50%, -50%);
 }
 
+#loading-bg{
+    width: 100%;
+    background-color: rgba(2, 2, 2, 0.7);
+    position: fixed;
 
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-text{
+    color: white;
+    font-size: 30px;
+}
+
+#spinner-loading{
+    display: flex;
+    justify-content: center;
+}
