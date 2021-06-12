@@ -30,6 +30,8 @@ class UserAdmin extends modelHelper{
         $sql->bindValue(':id_git', $user_data['id_git']);
         $sql->bindValue(":login_git", $user_data['login_git']);
         $sql->execute();
+
+        return $this->db->lastInsertId();
     }
 
     /**

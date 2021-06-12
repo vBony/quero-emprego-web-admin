@@ -40,12 +40,18 @@ class thirdpartyController extends controllerHelper{
                 if($user_db != null){
                     if($user_db['status'] != 0){    //Usuário existe porém foi banido
                         header("Location: " . $_ENV['BASE_URL'] . 'error/nao-membro');
+                    }else{
+                        $this->autorizarUsuario($this->accessToken, $user_db['id']);
+                        header("Location: " . $_ENV['BASE_URL']);
                     }
                 }else{  //Salvando no banco
                     $UserAdmin = new UserAdmin();
-                    $UserAdmin->insert($user_data);
+                    $id = $UserAdmin->insert($user_data);
+                    
+                    // $this->autorizarUsuario($this->accessToken, $id);
 
-                    echo 'usuario inserido';
+                    $this->autorizarUsuario($this->accessToken, $id);
+                    header("Location: " . $_ENV['BASE_URL']);
                 }
             }else{
                 header("Location: " . $_ENV['BASE_URL'] . 'error/nao-membro');
