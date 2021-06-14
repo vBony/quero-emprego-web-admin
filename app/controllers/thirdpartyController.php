@@ -48,7 +48,7 @@ class thirdpartyController extends controllerHelper{
                     $UserAdmin = new UserAdmin();
                     $id = $UserAdmin->insert($user_data);
 
-                    $this->downloadAvatarUser($user_data['url_avatar_web'], $id);
+                    // $this->downloadAvatarUser($user_data['url_avatar_web'], $id);
                     
                     // $this->autorizarUsuario($this->accessToken, $id);
 

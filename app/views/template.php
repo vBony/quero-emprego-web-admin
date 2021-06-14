@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
+    <script src="<?=$_ENV['BASE_URL']?>app/assets/libraries/jquery.js"></script>
     <link rel="stylesheet" href="<?=$_ENV['BASE_URL']?>app/assets/css/template.css">
     <link rel="stylesheet" href="<?=$_ENV['BASE_URL']?>app/assets/css/<?=$css?>">
-    <script src="<?=$_ENV['BASE_URL']?>app/assets/js/jquery.js"></script>
-    <script src="<?=$_ENV['BASE_URL']?>app/assets/js/template.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="<?=$_ENV['BASE_URL']?>/app/assets/libraries/bootstrap.css" rel="stylesheet">
     <link href="<?=$_ENV['BASE_URL']?>/app/assets/css/homolog-header.css" rel="stylesheet">
     <script src="<?=$_ENV['BASE_URL']?>app/assets/libraries/bootstrap.js"></script>
+    <script src="<?=$_ENV['BASE_URL'].'/app/assets/js/template.js'?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -57,6 +57,54 @@
 
             <div class="lm-inv">
                 <div class="title-lm">Principal</div>
+            </div>
+
+            <div class="menu-option" data-id="home">
+                <div class="opt-inv">
+                    <div class="icon-mopt-area">
+                        <i class="fas fa-home icon-mopt"></i>
+                    </div>
+
+                    <div class="text-mopt-area">
+                        Início
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-option" data-id="none">
+                <div class="opt-inv">
+                    <div class="icon-mopt-area">
+                        <i class="fas fa-home icon-mopt"></i>
+                    </div>
+
+                    <div class="text-mopt-area">
+                        Lorem
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-option" data-id="none">
+                <div class="opt-inv">
+                    <div class="icon-mopt-area">
+                        <i class="fas fa-home icon-mopt"></i>
+                    </div>
+
+                    <div class="text-mopt-area">
+                        Ipsum
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-option" data-id="none">
+                <div class="opt-inv">
+                    <div class="icon-mopt-area">
+                        <i class="fas fa-home icon-mopt"></i>
+                    </div>
+
+                    <div class="text-mopt-area">
+                        Odor
+                    </div>
+                </div>
             </div>
         </div>
     </div>

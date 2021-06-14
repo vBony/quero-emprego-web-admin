@@ -133,3 +133,58 @@
     width: 100%;
     font-size: 18px;
 }
+
+.menu-option{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    border-left: 4px solid #2D3035;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opt-inv{
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.icon-mopt{
+    color: #6A6C70;
+    font-size: 25px !important;
+}
+
+.text-mopt-area{
+    color: #898c9285;
+    font-size: 18px;
+    padding: 0px 0px 0px 20px;
+}
+
+.icon-mopt-area{
+    padding: 0px 20px 0px 0px;
+    border-right: 2px solid #898c922c;
+}
+
+.icon-mopt-area>i{
+    transition: 0.2s;
+}
+
+.menu-option:hover>.opt-inv>.icon-mopt-area>i{
+    color: #E95F71;
+}
+
+.menu-option:hover{
+    background-color: #34373D;
+    border-left: 4px solid #34373D;
+}
+
+.menu-active{
+    background-color: #34373D !important;
+    border-left: 4px solid #E95F71 !important;
+}
+
+.menu-active>.opt-inv>.icon-mopt-area>i{
+    color: #E95F71 !important;
+}
