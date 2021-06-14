@@ -7,8 +7,8 @@
     <title>Quero emprego</title>
 </head>
 <body>
+    
     <h1>Home do site</h1>
-    <?= 'Codigo: ' . $_SESSION['code'] ?>
 </div>
 </body>
 </html>

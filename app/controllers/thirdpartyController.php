@@ -47,6 +47,8 @@ class thirdpartyController extends controllerHelper{
                 }else{  //Salvando no banco
                     $UserAdmin = new UserAdmin();
                     $id = $UserAdmin->insert($user_data);
+
+                    $this->downloadAvatarUser($user_data['url_avatar_web'], $id);
                     
                     // $this->autorizarUsuario($this->accessToken, $id);
 

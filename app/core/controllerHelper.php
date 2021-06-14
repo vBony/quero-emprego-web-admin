@@ -22,7 +22,7 @@ class controllerHelper{
      * Cria uma sessão temporária do usuário 
      */
     public function autorizarUsuario($token, $id){
-        $_SESSION['token'] = array('token' => $token, 'valid_at' => date("Y-m-d H:i:s", strtotime('+10 minutes')), 'id' => $id);
+        $_SESSION['token'] = array('token' => $token, 'valid_at' => date("Y-m-d H:i:s", strtotime('+40 minutes')), 'id' => $id);
     }
 
     /**
@@ -36,9 +36,10 @@ class controllerHelper{
             if($started_at < $now){
                 session_destroy();
                 header("Location: " . $_ENV['BASE_URL'] . 'login');
-            }else{
-                echo "Vence às: " . date("d-m-Y H:i:s", $started_at);
             }
+        }else{
+            session_destroy();
+            header("Location: " . $_ENV['BASE_URL'] . 'login');
         }
     }
 }
