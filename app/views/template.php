@@ -107,11 +107,16 @@
                 </div>
             </div>
         </div>
+
+        <div id="content-divisor">
+            <div id="app-area">
+                teste
+            </div>
+
+            <div id="footer-area">
+                <div id="footer-inv">2021 © Quero Emprego. Design by vBony.</div>
+            </div>
+        </div>
     </div>
-
-    <?php $this->loadViewInTemplate($viewName, $viewData)?>
-
-    <footer id="footer_bg">
-    </footer>
 </body>
 </html>
