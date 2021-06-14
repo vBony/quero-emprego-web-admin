@@ -4,7 +4,8 @@ class UserAdmin extends modelHelper{
 
     public function getCargo($idCargo){
         $cargos = [
-            0 => 'Programador'
+            0 => 'Programador',
+            1 => 'Líder de projeto'
         ];
 
         if(isset($cargos[$idCargo])){
