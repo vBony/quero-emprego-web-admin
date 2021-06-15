@@ -13,4 +13,10 @@ $( document ).ready(function() {
     }else{
         $("div[data-id="+path+"]").addClass('menu-active')
     }
+
+    $('.menu-option').on('click', function(){
+        let url = $('#base_url').val();
+        
+        window.location.href = url + $(this).data('id');
+    })
 });

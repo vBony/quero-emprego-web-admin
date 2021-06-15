@@ -8,6 +8,10 @@
     color: #31343B;
 }
 
+body{
+    background-color: #22252A;
+}
+
 #header-area{
     background-color: #2D3035;
     display: flex;
@@ -70,7 +74,7 @@
 }
 
 #content-area{
-    width: 100% !important;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -79,13 +83,16 @@
     width: 100%;
     display: flex;
     flex-direction: column !important;
-    background-color: red;
+    justify-content: space-between;
+    background-color: #22252A;
 }
 
 #lateral-menu{
-    width: 280px;
-    height: 100%;
+    width: 300px;
+    min-width: 300px;
+    height: 100vh;
     background-color: #2D3035;
+    border-right: 2px solid #34373D;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,14 +100,15 @@
 
 #app-area{
     width: 100%;
+    background-color: #9999;
 }
 
 #footer-area{
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: blue;
-    /* background-color: #2D3035; */
+    /* background-color: blue; */
+    background-color: #2D3035;
 }
 
 #footer-inv{
@@ -215,4 +223,12 @@
 
 .menu-active>.opt-inv>.icon-mopt-area>i{
     color: #E95F71 !important;
+}
+
+#teste{
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: #292C31;
+    padding: 20px;
 }

@@ -12,6 +12,7 @@
     <link href="<?=$_ENV['BASE_URL']?>/app/assets/css/homolog-header.css" rel="stylesheet">
     <script src="<?=$_ENV['BASE_URL']?>app/assets/libraries/bootstrap.js"></script>
     <script src="<?=$_ENV['BASE_URL'].'/app/assets/js/template.js'?>"></script>
+    <script src="<?=$_ENV['BASE_URL'].'/app/assets/js/' . $js?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -71,14 +72,14 @@
                 </div>
             </div>
 
-            <div class="menu-option" data-id="none">
+            <div class="menu-option" data-id="colaboradores">
                 <div class="opt-inv">
                     <div class="icon-mopt-area">
-                        <i class="fas fa-home icon-mopt"></i>
+                        <i class="fas fa-user-shield icon-mopt" style="width:28.13px"></i>
                     </div>
 
                     <div class="text-mopt-area">
-                        Lorem
+                        Colaboradores
                     </div>
                 </div>
             </div>
@@ -106,17 +107,20 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div id="content-divisor">
             <div id="app-area">
-                teste
+                <?php $this->loadViewInTemplate($viewName, $viewData)?>
             </div>
-
+            
             <div id="footer-area">
                 <div id="footer-inv">2021 © Quero Emprego. Design by vBony.</div>
             </div>
         </div>
     </div>
+
+    <input type="hidden" id="base_url" value="<?=$_ENV['BASE_URL']?>">
 </body>
 </html>
