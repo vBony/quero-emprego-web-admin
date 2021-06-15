@@ -1,0 +1,92 @@
+#content{
+    width: 100%;
+    background-color: #22252A !important;
+}
+
+#body{
+    background-color: #22252A;
+}
+
+#title-page{
+    width: 100%;
+}
+
+#title-page-inv{
+    text-align: left;
+    width: 95%;
+    margin: auto;
+}
+
+#title-page-area{
+    background-color: #2D3035;
+    padding: 15px 0px;
+    margin-bottom: 20px;
+}
+
+#title-page{
+    color: #8A8D93;
+}
+
+#table-users>thead>tr>th{
+    color: #8a8d93 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #343a40;
+}
+
+#table-users>tbody>tr>td{
+    color: #8a8d93 !important;
+    border-bottom: 2px solid #343a40;
+}
+
+#table-area{
+    width: 95%;
+    margin: 0px auto !important;
+    padding: 20px 20px;
+    background-color: #2D3035 !important;
+}
+
+.online-icon-area{
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.online-icon{
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    border-radius: 100%;
+}
+
+.status-th{
+    width: 50px !important;
+}
+
+.status-td{
+    width: 50px !important;
+}
+
+.id-th{
+    width: 5% !important;
+}
+
+.btns-list{
+    padding: 5px 10px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.btns-list:hover>i{
+    color: #E95F71;
+}
+
+.btns-list>i{
+    color: #8a8d93;
+}
+
+#btn-action-table-area{
+    display: flex;
+}
