@@ -9,7 +9,7 @@
 }
 
 body{
-    background-color: #22252A;
+    /* background-color: #22252A; */
 }
 
 #header-area{
@@ -88,8 +88,9 @@ body{
 }
 
 #lateral-menu{
-    width: 300px;
-    min-width: 300px;
+    width: 100%;
+    max-width: 300px;
+    min-width: 250px;
     height: 100vh;
     background-color: #2D3035;
     border-right: 2px solid #34373D;
@@ -231,4 +232,92 @@ body{
     color: white;
     background-color: #292C31;
     padding: 20px;
+}
+
+#icon-colaboradores {
+    width:28.13px
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #A5A9B1;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+#button-mobile-header{
+    display: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+#menu-area-header {
+    display: flex;
+    align-items: center;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+@media only screen and (max-width:848px) {
+    #profession-area-lm {
+        font-size: 12px;
+    }
+    #name-area-lm {
+        font-size: 12px;
+    }
+    #photo-area-lm >img {
+        height: 30px;
+    }
+    #lateral-menu {
+        min-width: 100px;
+        max-width: 200px;
+    }
+    .text-mopt-area{
+        color: #898c9285;
+        font-size: 12px;
+        padding: 0px 0px 0px 10px;
+    }
+
+    .icon-mopt{
+        color: #6A6C70;
+        font-size: 18px !important;
+    }
+
+    .icon-mopt-area{
+        padding: 0px 10px 0px 0px;
+        border-right: 2px solid #898c922c;
+    }
+    #icon-colaboradores {
+        width: 20px !important;
+    }
+    .card-area {
+        width: 200px !important;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    #lateral-menu {
+        display: none;
+    }
+
+    .card-area {
+        width: 90% !important;
+    }
+    
+    #button-mobile-header{
+        display: block;
+    }
 }

@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="<?=$_ENV['BASE_URL']?>app/assets/libraries/jquery.js"></script>
     <link rel="stylesheet" href="<?=$_ENV['BASE_URL']?>app/assets/css/template.css">
@@ -29,6 +29,13 @@
                     <span class="badge bg-secondary" id="num-notifications-header">4</span>
                     <i class="fas fa-bell" id="icon-notification-header"></i>
                 </div>
+
+                <div id="button-mobile-header">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+
             </div>
 
         </div>
@@ -75,7 +82,7 @@
             <div class="menu-option" data-id="colaboradores">
                 <div class="opt-inv">
                     <div class="icon-mopt-area">
-                        <i class="fas fa-user-shield icon-mopt" style="width:28.13px"></i>
+                        <i id="icon-colaboradores" class="fas fa-user-shield icon-mopt"></i>
                     </div>
 
                     <div class="text-mopt-area">
