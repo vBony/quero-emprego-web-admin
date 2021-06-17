@@ -19,4 +19,22 @@ class colaboradoresController extends controllerHelper{
 
         $this->loadTemplate('colaboradores', $data);
     }
+
+    public function getUser(){
+        $this->verificarSessao();
+
+        $id = isset($_POST['id']) && !empty($_POST['id']) ? $_POST['id'] : null;
+
+        if(!empty($id)){
+            $UserAdmin = new UserAdmin();
+            $Cargos = new Cargos();
+            $data['user'] = $UserAdmin->buscar($id);
+            $data['listas']['cargos'] = $Cargos->buscar();
+
+            echo json_encode($data);
+        }else{
+            echo 'vazio';
+        }
+
+    }
 }

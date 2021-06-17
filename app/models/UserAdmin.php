@@ -137,6 +137,38 @@ class UserAdmin extends modelHelper{
 
                 return $users;
             }
+        }else{
+            $sql = "SELECT * FROM $this->table 
+                        INNER JOIN $this->pre_fix.cargos
+                            on cargos.c_id = admin_user.cargo
+                        WHERE admin_user.id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id", $id);
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+                $user = $sql->fetch(PDO::FETCH_ASSOC);
+
+                $token_valid_at =  date("Y-m-d H:i:s", strtotime($user['last_login']." +40 minutes"));
+                $now = date("Y-m-d H:i:s");
+
+                if($now > $token_valid_at){
+                    $user['disp_status'] = 'offline';
+                }elseif($now < $token_valid_at){
+                    $user['disp_status'] = 'online';
+                }
+
+                // Verificando se o usuário inseriu alguma foto, caso contrário é importada a foto padrão
+                if(!empty($user['url_avatar'])){
+                    $user['photo'] = $user['url_avatar'];
+                }elseif(!empty($user['url_avatar_web'])){
+                    $user['photo'] = $user['url_avatar_web'];
+                }else{
+                    $user['photo'] = $_ENV['BASE_URL'].'app/assets/imgs/default-user-image.png';
+                }
+
+                return $user;
+            }
         }
     }
 }
