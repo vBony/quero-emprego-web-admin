@@ -53,3 +53,19 @@
     font-size: 20px;
 }
 
+@media only screen and (max-width:848px) {
+    .card-area {
+        width: 200px !important;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    .card-area {
+        width: 90% !important;
+    }
+    
+    #button-mobile-header{
+        display: block;
+    }
+}
+

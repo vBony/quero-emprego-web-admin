@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Document</title>
     <script src="<?=$_ENV['BASE_URL']?>app/assets/libraries/jquery.js"></script>
     <link rel="stylesheet" href="<?=$_ENV['BASE_URL']?>app/assets/css/template.css">

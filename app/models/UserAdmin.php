@@ -110,10 +110,32 @@ class UserAdmin extends modelHelper{
             $sql->execute();
     
             if($sql->rowCount() > 0){
+                $users = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-                
+                /**
+                 * Verifica a hora do ultimo login do usuario com o tempo atual para ver se os usuários estão online
+                 */
+                foreach($users as $chave => $user){
+                    $token_valid_at =  date("Y-m-d H:i:s", strtotime($user['last_login']." +40 minutes"));
+                    $now = date("Y-m-d H:i:s");
 
-                // return $sql->fetchAll(PDO::FETCH_ASSOC);
+                    if($now > $token_valid_at){
+                        $users[$chave]['disp_status'] = 'offline';
+                    }elseif($now < $token_valid_at){
+                        $users[$chave]['disp_status'] = 'online';
+                    }
+
+                    // Verificando se o usuário inseriu alguma foto, caso contrário é importada a foto padrão
+                    if(!empty($user['url_avatar'])){
+                        $users[$chave]['photo'] = $user['url_avatar'];
+                    }elseif(!empty($user['url_avatar_web'])){
+                        $users[$chave]['photo'] = $user['url_avatar_web'];
+                    }else{
+                        $users[$chave]['photo'] = $_ENV['BASE_URL'].'app/assets/imgs/default-user-image.png';
+                    }
+                }
+
+                return $users;
             }
         }
     }
