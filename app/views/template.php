@@ -53,11 +53,11 @@
 
                 <div id="box2-pa">
                     <div id="name-area-lm">
-                        <?= $user['primeiro_nome'] ?>
+                        <?= $user['nome'] ?>
                     </div>
 
                     <div id="profession-area-lm">
-                        <?= $user['cargo'] ?>
+                        <?= $user['c_descricao'] ?>
                     </div>
                 </div>
 

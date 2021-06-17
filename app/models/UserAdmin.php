@@ -74,7 +74,7 @@ class UserAdmin extends modelHelper{
         $sql->execute();
 
         if($sql->rowCount() > 0){
-            $dados = $sql->fetch();
+            $dados = $sql->fetch(PDO::FETCH_ASSOC);
 
             $dados['cargo'] = $this->getCargo($dados['cargo']);
             $dados['primeiro_nome'] = $this->getPrimeiroNome($dados['nome']);

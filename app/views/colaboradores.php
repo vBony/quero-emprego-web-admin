@@ -111,22 +111,44 @@
                                 <label for="username-users-edit" class="form-label">Nome de usuário:</label>
                                 <input type="text" id="username-users-edit" class="form-control" placeholder="Username" disabled>
                             </div>
+                            
+                            <?php if($user['c_id'] == '2'): ?>
 
-                            <div  class="col-lg-12 form-group mb-3">
-                                <label for="cargo-users-edit" class="form-label">Cargo:</label>
-                                <select class="form-select" aria-label="Default select example" id="cargo-users-edit">
-                                    <option selected>Selecione o cargo</option>
-                                </select>
-                            </div>
-
-                            <div  class="col-lg-12 form-group mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="banned-users-edit">
-                                    <label class="form-check-label" for="banned-users-edit">
-                                        Banido
-                                    </label>
+                                <div  class="col-lg-12 form-group mb-3">
+                                    <label for="cargo-users-edit" class="form-label">Cargo:</label>
+                                    <select class="form-select" aria-label="Default select example" id="cargo-users-edit">
+                                        <option value="0">Selecione o cargo</option>
+                                    </select>
                                 </div>
-                            </div>
+
+                                <div  class="col-lg-12 form-group mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="1" id="banned-users-edit">
+                                        <label class="form-check-label" for="banned-users-edit">
+                                            Banido
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <?php else: ?> 
+
+                                <div  class="col-lg-12 form-group mb-3">
+                                    <label for="cargo-users-edit" class="form-label">Cargo:</label>
+                                    <select class="form-select" aria-label="Default select example" id="cargo-users-edit-disabled" disabled>
+                                        <option value="0">Selecione o cargo</option>
+                                    </select>
+                                </div>
+
+                                <div  class="col-lg-12 form-group mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="1" id="banned-users-edit-disabled" disabled>
+                                        <label class="form-check-label" for="banned-users-edit">
+                                            Banido
+                                        </label>
+                                    </div>
+                                </div>
+
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

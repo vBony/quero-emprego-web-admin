@@ -23,6 +23,7 @@ $( document ).ready(function() {
 
                     if(json.user.status == '1'){
                         $('#banned-users-edit').prop( "checked", true );
+                        $('#banned-users-edit-disabled').prop( "checked", true );
                     }
 
                     if(json.user.url){
@@ -39,9 +40,13 @@ $( document ).ready(function() {
 
                     $('#image-users-edit').attr('src', json.user.photo ? json.user.photo : null)
 
+                    
                     $.each(json.listas.cargos, function (key, item) {
                         $('<option>').val(item.c_id).text(item.c_descricao).appendTo('#cargo-users-edit');
+                        $('<option>').val(item.c_id).text(item.c_descricao).appendTo('#cargo-users-edit-disabled');
                     })
+                    
+                    $('#cargo-users-edit').val(json.user.cargo ? json.user.cargo : null)
 
                     $('#modal-edit-user').modal('toggle');
                 }

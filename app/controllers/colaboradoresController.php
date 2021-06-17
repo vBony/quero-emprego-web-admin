@@ -6,8 +6,7 @@ class colaboradoresController extends controllerHelper{
         $this->verificarSessao();
 
         $UserAdmin = new UserAdmin();
-        $user = $UserAdmin->get_user_data($_SESSION['token']['id']);
-
+        $user = $UserAdmin->buscar($_SESSION['token']['id']);
         $users = $UserAdmin->buscar();
 
         $data = array();
@@ -32,9 +31,12 @@ class colaboradoresController extends controllerHelper{
             $data['listas']['cargos'] = $Cargos->buscar();
 
             echo json_encode($data);
-        }else{
-            echo 'vazio';
         }
+
+    }
+
+    // Função que altera o cargo e/ou torna o usuario banido, lá da lista de colaboradores
+    public function leaderUpdateUser(){
 
     }
 }
