@@ -177,7 +177,7 @@ class UserAdmin extends modelHelper{
      * Função para os lideres de projeto atualizar os dados permitidos do colaborador
      */
     public function leaderUpdateUser($cargo, $banned, $id){
-        $banned = $banned == true ? 1 : 0;
+        $banned = $banned == 'true' ? 1 : 0;
 
         try{
             $sql = " UPDATE $this->table SET 

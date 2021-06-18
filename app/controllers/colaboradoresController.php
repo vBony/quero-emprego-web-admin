@@ -69,7 +69,7 @@ class colaboradoresController extends controllerHelper{
         }
 
         if(empty($erros) && $user['cargo'] == '2'){
-            $teste = $UserAdmin->leaderUpdateUser($cargo, $banned, $id);
+            $UserAdmin->leaderUpdateUser($cargo, $banned, $id);
             $msg['msg'] = 'success';
             echo json_encode($msg);
         }elseif($user['cargo'] != '2'){
