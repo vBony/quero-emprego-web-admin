@@ -167,6 +167,9 @@ class UserAdmin extends modelHelper{
                     $user['photo'] = $_ENV['BASE_URL'].'app/assets/imgs/default-user-image.png';
                 }
 
+                $nomeArr = explode(' ', $user['nome']);
+                $user['primeiro_nome'] = $nomeArr[0];
+
                 return $user;
             }
         }
