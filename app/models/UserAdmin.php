@@ -171,6 +171,30 @@ class UserAdmin extends modelHelper{
             }
         }
     }
+
+
+    /**
+     * Função para os lideres de projeto atualizar os dados permitidos do colaborador
+     */
+    public function leaderUpdateUser($cargo, $banned, $id){
+        $banned = $banned == true ? 1 : 0;
+
+        try{
+            $sql = " UPDATE $this->table SET 
+            cargo = :cargo,
+            status = :banned
+            WHERE id = :id";
+
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':cargo', $cargo);
+            $sql->bindValue(':banned', $banned);
+            $sql->bindValue(':id', $id);
+            $sql->execute();
+        }catch(Exception $e){
+            return 'Erro: '.$e->getMessage();
+        }
+        
+    }
 }
 
 

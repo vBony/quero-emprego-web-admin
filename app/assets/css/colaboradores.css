@@ -298,6 +298,17 @@
     cursor: pointer;
 }
 
+.is-invalid{
+    border: 1px solid red !important;
+}
+
+.error-feedback{
+    margin: 0px;
+    color: red !important;
+    font-size: 12px;
+    display: none;
+}
+
 @media only screen and (max-width:848px) {
     #table-users>thead>tr>th{
         font-size: 10px;

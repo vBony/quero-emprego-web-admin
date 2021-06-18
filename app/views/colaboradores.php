@@ -113,12 +113,12 @@
                             </div>
                             
                             <?php if($user['c_id'] == '2'): ?>
-
+                                
                                 <div  class="col-lg-12 form-group mb-3">
                                     <label for="cargo-users-edit" class="form-label">Cargo:</label>
                                     <select class="form-select" aria-label="Default select example" id="cargo-users-edit">
-                                        <option value="0">Selecione o cargo</option>
                                     </select>
+                                    <div class="error-feedback" id="cargo-users-edit-msg"></div>
                                 </div>
 
                                 <div  class="col-lg-12 form-group mb-3">
@@ -135,8 +135,10 @@
                                 <div  class="col-lg-12 form-group mb-3">
                                     <label for="cargo-users-edit" class="form-label">Cargo:</label>
                                     <select class="form-select" aria-label="Default select example" id="cargo-users-edit-disabled" disabled>
-                                        <option value="0">Selecione o cargo</option>
                                     </select>
+                                    <div class="invalid-feedback">
+                                        Please choose a username.
+                                    </div>
                                 </div>
 
                                 <div  class="col-lg-12 form-group mb-3">
@@ -159,7 +161,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-modal-users-edit" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-primary" id="send-btn" data-id="">Salvar</button>
             </div>
 
         </div>
