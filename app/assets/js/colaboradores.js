@@ -34,6 +34,9 @@ $( document ).ready(function() {
                     if(json.user.status == '1'){
                         $('#banned-users-edit').prop( "checked", true );
                         $('#banned-users-edit-disabled').prop( "checked", true );
+                    }else{
+                        $('#banned-users-edit').prop( "checked", false );
+                        $('#banned-users-edit-disabled').prop( "checked", false );
                     }
 
                     if(json.user.url){

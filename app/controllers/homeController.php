@@ -11,10 +11,6 @@ class homeController extends controllerHelper{
         $data['js'] = 'home.js';
         $data['user'] = $user;
         
-        // echo "<pre>";
-        // print_r($data['user']);
-        // echo "<pre>";
-        
         $this->loadTemplate('home', $data);
     }
 }

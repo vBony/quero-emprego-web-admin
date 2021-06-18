@@ -167,6 +167,9 @@ class UserAdmin extends modelHelper{
                     $user['photo'] = $_ENV['BASE_URL'].'app/assets/imgs/default-user-image.png';
                 }
 
+                $nomeArr = explode(' ', $user['nome']);
+                $user['primeiro_nome'] = $nomeArr[0];
+
                 return $user;
             }
         }
@@ -177,7 +180,7 @@ class UserAdmin extends modelHelper{
      * Função para os lideres de projeto atualizar os dados permitidos do colaborador
      */
     public function leaderUpdateUser($cargo, $banned, $id){
-        $banned = $banned == true ? 1 : 0;
+        $banned = $banned == 'true' ? 1 : 0;
 
         try{
             $sql = " UPDATE $this->table SET 
