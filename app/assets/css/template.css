@@ -194,10 +194,6 @@ body{
     margin-right: 10px;
 }
 
-.mm-inv{
-
-}
-
 #box2-pa{
     display: flex;
     flex-direction: column;
@@ -478,6 +474,10 @@ body{
     
     #button-mobile-header{
         display: block;
+    }
+
+    #menu-mobile-area{
+        width: 90%;
     }
 
     .box-logo-1{
