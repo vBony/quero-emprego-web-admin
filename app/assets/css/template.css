@@ -1,0 +1,323 @@
+@font-face {
+    font-family: Gordita;
+    src: url(../fonts/gordita.woff);
+}
+
+*{
+    font-family: Gordita, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #31343B;
+}
+
+body{
+    /* background-color: #22252A; */
+}
+
+#header-area{
+    background-color: #2D3035;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 25px 0px;
+    border-bottom: 2px solid #34373D;
+}
+
+#header-inv{
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo-area-header{
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    margin-right: 10px;
+}
+
+.box-logo-1{
+    color: #8A8D93;
+    margin: 0px 5px 0px 0px;
+}
+
+.box-logo-2{
+    color: #E95F71;
+}
+
+.box-logo-1, .box-logo-2{
+    font-size: 20px;
+}
+
+#notification-header-area{
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+}
+
+#icon-notification-header{
+    color: #8A8D93; 
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+#icon-notification-header:hover{
+    color: #a5a9b1;
+}
+
+#num-notifications-header{
+    margin-right: 5px;
+}
+
+#content-area{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#content-divisor{
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-between;
+    background-color: #22252A;
+}
+
+#lateral-menu{
+    width: 100%;
+    max-width: 300px;
+    min-width: 250px;
+    height: 100vh;
+    background-color: #2D3035;
+    border-right: 2px solid #34373D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#app-area{
+    width: 100%;
+    background-color: #9999;
+}
+
+#footer-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: blue; */
+    background-color: #2D3035;
+}
+
+#footer-inv{
+    width: 90%;
+    text-align: center;
+    padding: 40px 0px;
+    color:#6A6C70;
+}
+
+#profile-area-lm{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: 0px auto 0px auto;
+    padding: 30px 0px;
+}
+
+.lm-inv{
+    width: 90%;
+    margin: 0px auto 0px auto;
+}
+
+#photo-area-lm {
+    border-radius: 50px;
+    padding: 3px;
+    width: max-content;
+    border: 3px solid #292C31;
+}
+
+#photo-area-lm img{
+    height: 50px;
+    border-radius: 50px;
+}
+
+#name-area-lm{
+    color: #8A8D93;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#profession-area-lm{
+    color: #898c9285;
+    font-size: 12px;
+}
+
+#box1-pa{
+    margin-right: 10px;
+}
+
+#box2-pa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-lm{
+    color: #898c9274 !important;
+    width: 100%;
+    font-size: 18px;
+}
+
+.menu-option{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    border-left: 4px solid #2D3035;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opt-inv{
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.icon-mopt{
+    color: #6A6C70;
+    font-size: 25px !important;
+}
+
+.text-mopt-area{
+    color: #898c9285;
+    font-size: 18px;
+    padding: 0px 0px 0px 20px;
+}
+
+.icon-mopt-area{
+    padding: 0px 20px 0px 0px;
+    border-right: 2px solid #898c922c;
+}
+
+.icon-mopt-area>i{
+    transition: 0.2s;
+}
+
+.menu-option:hover>.opt-inv>.icon-mopt-area>i{
+    color: #E95F71;
+}
+
+.menu-option:hover{
+    background-color: #34373D;
+    border-left: 4px solid #34373D;
+}
+
+.menu-active{
+    background-color: #34373D !important;
+    border-left: 4px solid #E95F71 !important;
+}
+
+.menu-active>.opt-inv>.icon-mopt-area>i{
+    color: #E95F71 !important;
+}
+
+#teste{
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: #292C31;
+    padding: 20px;
+}
+
+#icon-colaboradores {
+    width:28.13px
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #A5A9B1;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+#button-mobile-header{
+    display: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+#menu-area-header {
+    display: flex;
+    align-items: center;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+@media only screen and (max-width:848px) {
+    #profession-area-lm {
+        font-size: 12px;
+    }
+    #name-area-lm {
+        font-size: 12px;
+    }
+    #photo-area-lm >img {
+        height: 30px;
+    }
+    #lateral-menu {
+        min-width: 100px;
+        max-width: 200px;
+    }
+    .text-mopt-area{
+        color: #898c9285;
+        font-size: 12px;
+        padding: 0px 0px 0px 10px;
+    }
+
+    .icon-mopt{
+        color: #6A6C70;
+        font-size: 18px !important;
+    }
+
+    .icon-mopt-area{
+        padding: 0px 10px 0px 0px;
+        border-right: 2px solid #898c922c;
+    }
+    #icon-colaboradores {
+        width: 20px !important;
+    }
+    .card-area {
+        width: 200px !important;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    #lateral-menu {
+        display: none;
+    }
+
+    .card-area {
+        width: 90% !important;
+    }
+    
+    #button-mobile-header{
+        display: block;
+    }
+}
