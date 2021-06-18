@@ -62,6 +62,23 @@ class controllerHelper{
             header("Location: " . $_ENV['BASE_URL'] . 'login');
         }
     }
+
+    public function verificarSessaoApi(){
+        if(isset($_SESSION['token'])){
+            $started_at = strtotime($_SESSION['token']['valid_at']);
+            $now = strtotime(date("Y-m-d H:i:s"));
+
+            if($started_at < $now){
+                session_destroy();
+                return false;
+            }else{
+                return true;
+            }
+        }else{
+            session_destroy();
+            return false;
+        }
+    }
 }
 
 ?>
