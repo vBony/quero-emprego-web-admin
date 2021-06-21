@@ -80,6 +80,8 @@ $( document ).ready(function() {
 
         let data = {id: id, cargo: cargo, banned: banned};
 
+        let txt_btn = $('#send-btn').text()
+        $('#send-btn').text('Carregando...').css('cursor', 'not-allowed').attr('disabled');
         $.ajax({
             url: url+'colaboradores/leader-update-user',
             method: 'POST',
@@ -109,11 +111,20 @@ $( document ).ready(function() {
                 }
 
                 if(json.msg == 'success'){
+                    let user = json.data_user
+
+                    $('tr[data-id='+user.id+'] > .c_descricao-td').text(user.c_descricao)
+
                     Swal.fire({
                         title: 'Sucesso!',
                         text: "Colaborador atualizado com sucesso.",
                         icon: 'success',
                         confirmButtonText: 'Fechar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $('#send-btn').text(txt_btn).css('cursor', 'pointer').removeAttr('disabled');
+                            $('#modal-edit-user').modal('toggle');
+                        }
                     })
                 }
             }

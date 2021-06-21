@@ -68,9 +68,8 @@
             </div>
 
             <div class="modal-body">
-                <div id="content-modal">    
-
-                    <div class="col col-lg-4 col-md-4 col-sm-4">
+                <div id="content-modal" class="row">    
+                    <div class="col col-lg-4 col-md-12 col-sm-12 col-12">
 
                         <div id="image-area" class="mb-3">
                             <img src="" id="image-users-edit">
@@ -95,7 +94,7 @@
                         </div>
                     </div>
 
-                    <div class="col col-lg-6 col-md-6 col-sm-6">
+                    <div class="col col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="row">
                             <div class="col-lg-12 form-group mb-3">
                                 <label for="name-users-edit" class="form-label">Nome completo:</label>
