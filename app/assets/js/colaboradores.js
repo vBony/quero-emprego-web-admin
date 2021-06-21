@@ -80,6 +80,8 @@ $( document ).ready(function() {
 
         let data = {id: id, cargo: cargo, banned: banned};
 
+        let txt_btn = $('#send-btn').text()
+        $('#send-btn').text('Carregando...').css('cursor', 'not-allowed').attr('disabled');
         $.ajax({
             url: url+'colaboradores/leader-update-user',
             method: 'POST',
@@ -120,6 +122,7 @@ $( document ).ready(function() {
                         confirmButtonText: 'Fechar'
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            $('#send-btn').text(txt_btn).css('cursor', 'pointer').removeAttr('disabled');
                             $('#modal-edit-user').modal('toggle');
                         }
                     })
