@@ -71,6 +71,7 @@ class colaboradoresController extends controllerHelper{
         if(empty($erros) && $user['cargo'] == '2'){
             $UserAdmin->leaderUpdateUser($cargo, $banned, $id);
             $msg['msg'] = 'success';
+            $msg['data_user'] = $UserAdmin->buscar($id);
             echo json_encode($msg);
         }elseif($user['cargo'] != '2'){
             $erros['erros']['modal'] = 'Você não tem permissão para executar essa ação.';

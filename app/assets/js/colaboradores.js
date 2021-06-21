@@ -109,11 +109,19 @@ $( document ).ready(function() {
                 }
 
                 if(json.msg == 'success'){
+                    let user = json.data_user
+
+                    $('tr[data-id='+user.id+'] > .c_descricao-td').text(user.c_descricao)
+
                     Swal.fire({
                         title: 'Sucesso!',
                         text: "Colaborador atualizado com sucesso.",
                         icon: 'success',
                         confirmButtonText: 'Fechar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $('#modal-edit-user').modal('toggle');
+                        }
                     })
                 }
             }
