@@ -44,7 +44,7 @@ body{
 
 #inputs-box{
     padding: 40px 40px 80px 40px;
-    background-color: white;
+    background-color: #F7FAFF;
     transition: 0.2s;
 }
 
@@ -70,6 +70,7 @@ body{
     border-radius: 10px;
     border: none;
     border: #31343B 2px solid;
+    background-color: #F7FAFF;
 }
 
 
@@ -103,7 +104,7 @@ body{
 }
 
 #button-login-github-a:visited{
-    color: white;
+    color: #F7FAFF;
 }
 
 #button-login-github{
@@ -115,7 +116,7 @@ body{
 }
 
 #icon-btn-github, #button-login-github-text{
-    color: white;
+    color: #F7FAFF;
 }
 
 #icon-btn-github{
