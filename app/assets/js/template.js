@@ -20,8 +20,19 @@ $( document ).ready(function() {
         window.location.href = url + $(this).data('id');
     })
 
-    $("#button-mobile-header").on('click', function(){
-        this.classList.toggle("change")
+    $('.row-mm').on('click', function(){
+        let url = $('#base_url').val();
+
+        window.location.href = url + $(this).data('idmm');
     })
 
+    $("#button-mobile-header").on('click', function(){
+        this.classList.toggle("change")
+        $('#menu-mobile-bg').fadeIn('fast')
+    })
+
+    $('#btn-close-menu-mobile').on('click', function(){
+        $('#menu-mobile-bg').fadeOut('fast')
+        $('#button-mobile-header').removeClass('change');
+    })
 });

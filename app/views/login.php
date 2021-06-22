@@ -51,7 +51,8 @@
                     <div id="button-form">
                         <button id="button-submit" class="btn btn-success">Entrar</button>
 
-                        <hr data-content="OU" class="hr-text">
+                        <!-- <hr data-content="OU" class="hr-text"> -->
+                        <div class="hr-sect">OU</div>
 
                         <a href="<?=$git_login?>" id="button-login-github-a">
                             <div id="button-login-github">

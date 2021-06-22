@@ -5,7 +5,7 @@ class homeController extends controllerHelper{
         $data = array();
 
         $UserAdmin = new UserAdmin();
-        $user = $UserAdmin->get_user_data($_SESSION['token']['id']);
+        $user = $UserAdmin->buscar($_SESSION['token']['id']);
 
         $data['css'] = 'home.css';
         $data['js'] = 'home.js';
