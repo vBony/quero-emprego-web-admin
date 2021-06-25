@@ -200,6 +200,77 @@
     </div>
 </div>
 
+<div class="modal fade" id="modal-user-settings" tabindex="-1" role="dialog" aria-labelledby="modal-edit-user" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
 
+            <div class="modal-header">
+                <h5 class="modal-title">Editar perfil</h5>
+                <div id="btn-close-edit-user">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
 
+            <div class="modal-body">
+                <div id="content-modal">    
+                    <div class="col col-lg-4">
+                        <div id="image-area" class="mb-3">
+                            <img src="<?=$user['url_avatar_web']?>">
+                        </div>
+
+                        <div id="upload-img-area" class="mb-3">
+                            <label class="btn btn-primary" for="upload-img-area">
+                                <input id="upload-img-area" type="file" class="d-none" name="eu-photo">
+                                Alterar Foto
+                            </label>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body" id="icon-area">
+                                <a href="" target="_blank" id="redirect-github">
+                                    <div id="github-icon-area" class="icons-users-edit" title="Acessar GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                </a>
+
+                                <div id="message-icon-area" class="icons-users-edit">
+                                    <i class="fas fa-comment-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12 form-group mb-3">
+                                <label for="name-user-edit" class="form-label required">Nome completo:</label>
+                                <input  id="name-user-edit" type="text" class="form-control" name="eu-nome" placeholder="First name" value="<?= $user['nome'] ?>">
+                                <div class="error-feedback" id="eu-nome-msg"></div>
+                            </div>
+
+                            <div class="col-lg-12 form-group mb-3">
+                                <label for="email-user-edit" class="form-label">Email:</label>
+                                <input  id="email-user-edit" type="email" name="eu-email" class="form-control" placeholder="Email" value="">
+                                <div class="error-feedback" id="eu-email-msg"></div>
+                            </div>
+
+                            <div class="col-lg-12 from-group mb-3">
+                                <label for="username-user-edit" class="form-label required">Nome de usuário:</label>
+                                <input type="text" id="username-user-edit" name="eu-login_git" class="form-control" placeholder="Username" value="<?= $user['login_git'] ?>">
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btn-close-edit-user-footer">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="btn-submit-edit-user">Salvar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="url" value="<?=$_ENV['BASE_URL']?>">
 </html>

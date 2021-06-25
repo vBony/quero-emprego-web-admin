@@ -3,6 +3,21 @@ class UserAdmin extends modelHelper{
     private $table = "u316339274_emprego_hg.admin_user";
     private $pre_fix = "u316339274_emprego_hg";
 
+    public function getColunas(){
+        return [
+            'nome' => 'nome',
+            'url' => 'url',
+            'url_avatar_web' => 'url_avatar_web',
+            'url_avatar' => 'url_avatar',
+            'id_git' => 'id_git',
+            'login_git' => 'login_git',
+            'status' => 'status',
+            'cargo' => 'cargo',
+            'last_login' => 'last_login',
+            'email' => 'email'
+        ];
+    }
+
     public function getCargo($idCargo){
         $cargos = [
             0 => 'Programador',
@@ -197,6 +212,60 @@ class UserAdmin extends modelHelper{
             return 'Erro: '.$e->getMessage();
         }
         
+    }
+
+
+    // VALIDAÇÕES
+
+    public function validar($dados){
+        // Colunas
+        extract($this->getColunas());
+
+        $erros = array();
+
+        if($this->validarNome($dados[$nome]) != null){ 
+            $erros['erros'][$nome] = $this->validarNome($dados[$nome]); 
+        }
+
+        if($this->validarEmail($dados[$email]) != null){ 
+            $erros['erros'][$email] = $this->validarEmail($dados[$email]); 
+        }
+
+        if(!empty($erros)){
+            return $erros;
+        }else{
+            return null;
+        }
+    }
+
+    private function validarNome($nome){
+        if(empty($nome)){
+            return "Nome é obrigatório";
+        }
+
+        if(!preg_match("/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/",$nome)){
+            return "Digite um nome válido";
+        }
+
+        if(strrpos($nome, " ") === false){
+            return "Digite seu nome completo";
+        }
+
+        if(strlen($nome) > 40){
+            return "Digite um nome menor que 40 caracteres";
+        }
+    }
+
+    private function validarEmail($email){
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+        if(!empty($email)){  //Campo não obrigatório
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                return 'Digite um e-mail válido';
+            }
+        }else{
+            return null;
+        }
     }
 }
 

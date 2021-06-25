@@ -426,6 +426,168 @@ body{
     color: #898c9285;
 }
 
+.required::after{
+    margin-left: 5px;
+    content: '*';
+    color: red;
+}
+
+.is-invalid{
+    border: 1px solid red !important;
+}
+
+.btn-primary{
+    background-color: #E95F71 !important;
+    border-color: #E95F71 !important;
+    transition: 0.2s;
+}
+
+.btn-primary:hover{
+    background-color: #aa4553 !important;
+    border-color: #aa4553 !important;
+}
+
+.card-body{
+    background-color: #2d3035 !important;
+}
+
+.card{
+    border-color: #3d4148 !important;
+}
+
+.form-control{
+    background-color: #2d3035 !important;
+    color: #979a9f !important;
+    border: 1px solid #444951 !important;
+}
+
+.form-control:focus{
+    box-shadow: 0 0 0 0 !important;
+    outline: 0 !important;
+
+    border-color: #aa4553 !important;
+}
+
+.form-control:disabled{
+    background-color: rgba(150, 150, 150, 0.3) !important;
+    border-color: rgba(118, 118, 118, 0.3) !important;
+}
+
+.form-control::placeholder{
+    color: #979a9f !important;
+}
+
+.form-select{
+    background-color: #2d3035 !important;
+    color: #979a9f !important;
+    border: 1px solid #444951 !important;
+}
+
+.form-select>option{
+    color: #979a9f !important;
+}
+
+.form-select:disabled{
+    background-color: rgba(150, 150, 150, 0.3) !important;
+    border-color: rgba(118, 118, 118, 0.3) !important;
+}
+
+.form-select:focus{
+    box-shadow: 0 0 0 0 !important;
+    outline: 0 !important;
+
+    border-color: #aa4553 !important;
+}
+
+.modal-footer{
+    border-top: 1px solid #3d4148 !important;
+}
+
+.form-label{
+    color: #8A8D93 !important;
+}
+
+.form-check-label{
+    color: #8A8D93 !important;
+}
+
+.form-check-input{
+    background-color: #8A8D93 !important;
+    border: 1px solid #444951 !important;
+    transition: 0.2s;
+}
+
+.form-check-input:checked{
+    background-color: #aa4553 !important;
+}
+
+.form-check-input:focus{
+    box-shadow: 0 0 0 0 !important;
+    outline: 0;
+}
+
+.modal-content{
+    background-color: #2D3035 !important;
+}
+
+.modal-header{
+    border-bottom: 1px solid #3d4148 !important;
+}
+
+.modal-title{
+    color: #8A8D93 !important;
+}
+
+#content-modal{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons-users-edit{
+    margin-right: 10px;
+}
+
+.icons-users-edit>i{
+    color: black !important;
+    font-size: 40px;
+}
+
+#upload-img-area{
+    display: flex;
+    justify-content: center;
+}
+
+#image-area{
+    text-align: center;
+}
+
+#image-area img{
+    height: 180px;
+    border-radius: 100%;
+}
+
+#github-icon-area>i{
+    color: #F0F6FC !important;
+}
+
+#message-icon-area>i{
+    color: #075E54 !important;
+    cursor: pointer;
+}
+
+#icon-area{
+    width: 100%;
+    display: flex;
+}
+
+.error-feedback{
+    margin: 0px;
+    color: red !important;
+    font-size: 12px;
+    display: none;
+}
+
 @media only screen and (max-width:848px) {
     #profession-area-lm {
         font-size: 12px;
