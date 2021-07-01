@@ -47,6 +47,11 @@ class controllerHelper{
         }
     }
 
+    /**
+     * Verifica se o usuário possui uma sessãoa valida, 
+     * porém não redireciona automáticamente, 
+     * apenas retorna false caso nao exista para avisar ao front
+     */
     public function verificarSessaoApi(){
         if(isset($_SESSION['token'])){
             $started_at = strtotime($_SESSION['token']['valid_at']);
@@ -61,6 +66,15 @@ class controllerHelper{
         }else{
             session_destroy();
             return false;
+        }
+    }
+
+    /**
+     * Pega o id do usuário logado
+     */
+    public function getIdLogged(){
+        if(isset($_SESSION['token'])){
+            return $_SESSION['token']['id'];
         }
     }
 }

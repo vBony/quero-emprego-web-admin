@@ -447,6 +447,18 @@ body{
     border-color: #aa4553 !important;
 }
 
+#btn-submit-edit-user > #txt-btn{
+    color: white;
+}
+
+#btn-submit-edit-user > #txt-btn{
+    color: white;
+}
+
+#spin-btn{
+    display: none;
+}
+
 .card-body{
     background-color: #2d3035 !important;
 }

@@ -31,7 +31,9 @@ $( document ).ready(function() {
     $('.row-mm').on('click', function(){
         let url = $('#base_url').val();
 
-        window.location.href = url + $(this).data('idmm');
+        if($(this).data('idmm')){
+            window.location.href = url + $(this).data('idmm');
+        }
     })
 
     $("#button-mobile-header").on('click', function(){
@@ -44,8 +46,10 @@ $( document ).ready(function() {
         $('#button-mobile-header').removeClass('change');
     })
 
-    $('#icon-b3').on('click', function(){
+    $('#icon-b3, #box3-pa-mm').on('click', function(){
         $('#modal-user-settings').modal('toggle')
+        $('#menu-mobile-bg').fadeOut('fast')
+        $('#button-mobile-header').toggleClass("change")
     })
 
     $('#btn-close-edit-user, #btn-close-edit-user-footer').on('click', function(){
@@ -57,10 +61,13 @@ $( document ).ready(function() {
 
         let data = {
             nome: $('input[name=eu-nome').val(),
-            email: $('input[name=eu-email]').val(),
+            email_git: $('input[name=eu-email]').val(),
             login_git: $('input[name=eu-login_git]').val()
         }
 
+
+        $('#btn-submit-edit-user > #txt-btn').hide('fast')
+        $('#btn-submit-edit-user > #spin-btn').fadeIn('fast')
         $.ajax({
             url: url+'user/edit',
             method: 'POST',
@@ -72,6 +79,22 @@ $( document ).ready(function() {
                         $('input[name=eu-'+key+']').addClass('is-invalid')
                         $('#eu-'+key+'-msg').fadeIn('fast').text(item);
                     });
+                }
+
+                if(json.msg != undefined){
+                    $('#btn-submit-edit-user > #txt-btn').show('fast')
+                    $('#btn-submit-edit-user > #spin-btn').fadeOut('fast')
+
+                    Swal.fire({
+                        title: 'Sucesso!',
+                        text: json.msg,
+                        icon: 'success',
+                        confirmButtonText: 'Fechar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload()
+                        }
+                    })
                 }
             }
         })

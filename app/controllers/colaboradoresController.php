@@ -32,7 +32,6 @@ class colaboradoresController extends controllerHelper{
 
             echo json_encode($data);
         }
-
     }
 
     // Função que altera o cargo e/ou torna o usuario banido, lá da lista de colaboradores

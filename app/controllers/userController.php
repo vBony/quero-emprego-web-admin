@@ -26,16 +26,24 @@ class userController extends controllerHelper{
     }
 
     public function edit(){
-        $data = array();
-
+        if(!$this->verificarSessaoApi()){
+            echo json_encode(array('session' => false));
+            exit;
+        }
+        
+        $data = $_POST;
         $UserAdmin = new UserAdmin();
-        $erros = $UserAdmin->validar($_POST);
+        $msg = $UserAdmin->validar($data);
 
 
-        if($erros == null){
-            // criar uma parada pra tratar e salvar os dados
+        if($msg == null){
+            $data['id'] = intval($this->getIdLogged());
+            $UserAdmin->update($data);
+
+            $msg['msg'] = "Dados alterados com sucesso!";
+            echo json_encode($msg);
         }else{
-            echo json_encode($erros);
+            echo json_encode($msg);
         }
     }
 }

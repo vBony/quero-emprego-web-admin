@@ -14,7 +14,7 @@ class UserAdmin extends modelHelper{
             'status' => 'status',
             'cargo' => 'cargo',
             'last_login' => 'last_login',
-            'email' => 'email'
+            'email' => 'email_git'
         ];
     }
 
@@ -57,6 +57,30 @@ class UserAdmin extends modelHelper{
         $sql->execute();
 
         return $this->db->lastInsertId();
+    }
+
+    /**
+     * Atualiza o usuário no banco de dados
+     */
+    public function update($user_data){
+        try{
+            $sql = "UPDATE 
+                        $this->table 
+                    SET 
+                        nome = :nome, 
+                        email = :email, 
+                        login_git = :login_git 
+                    WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":nome", $user_data['nome']);
+            $sql->bindValue(":email", $user_data['email_git']);
+            $sql->bindValue(":login_git", $user_data['login_git']);
+            $sql->bindValue(":id", $user_data['id']);
+            $sql->execute();
+            
+        }catch(Exception $e){
+            return 'nao foi';
+        }
     }
 
     /**
@@ -216,8 +240,8 @@ class UserAdmin extends modelHelper{
 
 
     // VALIDAÇÕES
-
     public function validar($dados){
+
         // Colunas
         extract($this->getColunas());
 
@@ -231,11 +255,16 @@ class UserAdmin extends modelHelper{
             $erros['erros'][$email] = $this->validarEmail($dados[$email]); 
         }
 
+        if($this->validarLoginGit($dados[$login_git])){
+            $erros['erros'][$login_git] = $this->validarLoginGit($dados[$login_git]);
+        }
+
         if(!empty($erros)){
             return $erros;
         }else{
             return null;
         }
+
     }
 
     private function validarNome($nome){
@@ -265,6 +294,16 @@ class UserAdmin extends modelHelper{
             }
         }else{
             return null;
+        }
+    }
+
+    private function validarLoginGit($login_git){
+        if(empty($login_git)){
+            return "Nome de usuário é obrigatório";
+        }
+
+        if(strlen($login_git) > 40){
+            return "Digite um nome menor que 40 caracteres";
         }
     }
 }
