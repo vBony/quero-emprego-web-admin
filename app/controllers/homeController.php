@@ -10,6 +10,7 @@ class homeController extends controllerHelper{
         $data['css'] = 'home.css';
         $data['js'] = 'home.js';
         $data['user'] = $user;
+        $data['title'] = "📊 Dashboard - Quero Emprego Admin";
         
         $this->loadTemplate('home', $data);
     }

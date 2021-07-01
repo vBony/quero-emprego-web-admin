@@ -15,6 +15,7 @@ class colaboradoresController extends controllerHelper{
         $data['js'] = 'colaboradores.js';
         $data['user'] = $user;
         $data['users'] = $users;
+        $data['title'] = "👨‍💼 Colaboradores - Quero Emprego Admin";
 
         $this->loadTemplate('colaboradores', $data);
     }
