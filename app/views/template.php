@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Document</title>
     <script src="<?=$_ENV['BASE_URL']?>app/assets/libraries/jquery.js"></script>
     <link rel="stylesheet" href="<?=$_ENV['BASE_URL']?>app/assets/css/template.css">
     <link rel="stylesheet" href="<?=$_ENV['BASE_URL']?>app/assets/css/<?=$css?>">
@@ -15,6 +14,8 @@
     <script src="<?=$_ENV['BASE_URL'].'/app/assets/js/' . $js?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="<?=$_ENV['BASE_URL'].'/app/assets/libraries/sweetalert2.all.min.js'?>"></script>
+    <link rel="shortcut icon" href="<?= $_ENV['BASE_URL'].'/app/assets/favicon/favicon.ico' ?>" >
+    <title><?=$title?></title>
 </head>
 <body>
     <header id="header-area">

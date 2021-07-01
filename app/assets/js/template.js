@@ -7,6 +7,11 @@ $( document ).ready(function() {
         $('#'+name+'-msg').fadeOut('fast')
     })
 
+    $("#logo-area-header").on('click', function(){
+        let url = $('#base_url').val();
+        window.location.href = url;
+    })
+
 
     /**
      * Pega o data-id da div que está de acordo com a url atual e deixa como ativa no menu,
@@ -89,7 +94,8 @@ $( document ).ready(function() {
                         title: 'Sucesso!',
                         text: json.msg,
                         icon: 'success',
-                        confirmButtonText: 'Fechar'
+                        confirmButtonText: 'Fechar',
+                        allowOutsideClick: false,
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.reload()
