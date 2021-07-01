@@ -23,18 +23,28 @@
     color: #8A8D93;
 }
 
+.title-container{
+    color: #8A8D93;
+    font-size: 18px;
+    padding: 0px 0px 20px 0px;
+    text-align: left;
+}
+
 #cards-area{
-    padding: 15px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.container-box{
+    padding: 15px !important;
 }
 
 .card-area{
     width: 300px;
     padding: 20px 0px;
     background-color: #2D3035;
-    margin: 0px 10px 10px 0px;
+    margin: 10px 0px 10px 0px;
 }
 
 .icon-card{
@@ -51,6 +61,23 @@
     padding: 10px 0px 0px 0px;
     color: #8A8D93;
     font-size: 20px;
+}
+
+#table-users>thead>tr>th{
+    color: #8a8d93 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #343a40;
+}
+
+#table-users>tbody>tr>td{
+    color: #8a8d93 !important;
+    border-bottom: 2px solid #343a40;
+}
+
+#table-area{
+    padding: 20px 20px !important;
+    background-color: #2D3035 !important;
+    overflow-x: scroll !important;
 }
 
 @media only screen and (max-width:848px) {

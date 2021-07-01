@@ -27,6 +27,7 @@ class controllerHelper{
         $_SESSION['token'] = array('token' => $token, 'valid_at' => date("Y-m-d H:i:s", strtotime('+40 minutes')), 'id' => $id);
         $UserAdmin = new UserAdmin();
         $UserAdmin->salvarUltimoLogin($id, date("Y-m-d H:i:s"));
+        $UserAdmin->salvarUltimoIp($id, $_SERVER["REMOTE_ADDR"]);
     }
 
     /**
