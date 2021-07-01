@@ -137,6 +137,15 @@ class UserAdmin extends modelHelper{
         $sql->execute();
     }
 
+    public function salvarUltimoIp($id, $ip){
+        $sql = " UPDATE " . $this->table . " SET last_ip = :ip WHERE id = :id " ;
+
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":ip", $ip);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+    }
+
     public function buscar($id = null){
         if(empty($id)){
             $idUser = $_SESSION['token']['id'];
