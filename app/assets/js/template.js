@@ -63,6 +63,7 @@ $( document ).ready(function() {
 
     $('#btn-submit-edit-user').on('click', function(){
         let url = $('#url').val()
+        let base_url = $('#base_url').val()
 
         let data = {
             nome: $('input[name=eu-nome').val(),
@@ -101,6 +102,10 @@ $( document ).ready(function() {
                             window.location.reload()
                         }
                     })
+                }
+
+                if(json.session != undefined){
+                    window.location.href = base_url + "login"
                 }
             }
         })
