@@ -5,8 +5,10 @@ class RelatorioAcessos extends modelHelper{
     public function buscar($id = null){
         $sql = "SELECT * FROM $this->tabela ";
         if(!empty($id)){
-            $sql .= " WHERE ra_id = :id";
+            $sql .= " WHERE ra_id = :id ";
         }
+
+        $sql .= " ORDER BY ra_id DESC ";
 
         $sql = $this->db->prepare($sql);
         if(!empty($id)){
