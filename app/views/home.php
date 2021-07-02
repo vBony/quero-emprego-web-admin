@@ -59,7 +59,7 @@
             </div>
 
             <div class="data-card" style="color:#7127AC">
-                382839
+                <?= $count_acessos ?>
             </div>
         </div>
     </div>
@@ -67,24 +67,28 @@
     <div class="container-box">
         <div id="table-area">
             <div class="title-container">Relatório de acessos</div>
+            
+            <div id="overflow-table">
+                <table class="table" id="table-users">
+                    <thead>
+                        <tr>
+                            <th>IP</th>
+                            <th>Hora</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
 
-            <table class="table" id="table-users">
-                <thead>
-                    <tr>
-                        <th>IP</th>
-                        <th>Hora</th>
-                        <th>Data</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr data-id="">
-                        <td class="ip-td">9999.9999.99:99</td>
-                        <td class="hora-td">12:25:33</td>
-                        <td class="data-td">25/02/2021</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <?php foreach($relatorio_acessos as $acesso): ?>
+                        <tr data-id="">
+                            <td class="ip-td"><?= $acesso['ra_ip'] ?> <?= $user['last_ip'] == $acesso['ra_ip'] ? "(você)" : "" ?></td>
+                            <td class="hora-td"><?=$acesso['hora']?></td>
+                            <td class="data-td"><?=$acesso['data']?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
             
         </div>
     </div>
